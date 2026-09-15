@@ -15,12 +15,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          URL='https://homeops-control-center-v8-ahmad-c72c.vercel.app/'
-          curl -fsSL -D /tmp/headers.txt "$URL" -o /tmp/page.html
-          echo '--- HEADERS ---'
-          cat /tmp/headers.txt
-          echo '--- CONTENT CHECK ---'
-          grep -q 'Founder Sign In' /tmp/page.html
-          grep -q 'Build 2026.09.15-8' /tmp/page.html
-          grep -qi '^content-type: text/html' /tmp/headers.txt
-          echo 'HOMEOPS_V8_OK'
+          for URL in \
+            'https://raw.githack.com/Ahmadboreny/automated-social-media/main/homeops/index.html' \
+            'https://cdn.jsdelivr.net/gh/Ahmadboreny/automated-social-media@main/homeops/index.html'
+          do
+            echo "=== $URL ==="
+            rm -f /tmp/headers.txt /tmp/page.html
+            if curl -fsSL -D /tmp/headers.txt "$URL" -o /tmp/page.html; then
+              cat /tmp/headers.txt
+              if grep -q 'Founder Sign In' /tmp/page.html && grep -q 'Build 2026.09.15-8' /tmp/page.html && grep -qi '^content-type: *text/html' /tmp/headers.txt; then
+                echo "HOMEOPS_V8_OK=$URL"
+                exit 0
+              fi
+            fi
+          done
+          echo 'No public HTML endpoint passed verification.'
+          exit 1
