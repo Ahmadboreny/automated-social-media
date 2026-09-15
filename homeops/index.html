@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>HomeOps Control Center</title>
+<style>
+:root{--navy:#0B1020;--violet:#7C3AED;--cyan:#22D3EE;--coral:#FF5F6D;--amber:#F59E0B;--bg:#F8FAFF;--card:#fff;--line:#E7EAF2;--text:#171A28;--muted:#70788D;--ok:#138A45;--danger:#B42318}*{box-sizing:border-box}body{margin:0;font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}button,input,select,textarea{font:inherit}.hide{display:none!important}.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 15% 15%,#7c3aed2e,transparent 28%),radial-gradient(circle at 85% 10%,#22d3ee24,transparent 24%)}.login-card{width:min(460px,100%);background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 28px 70px #0b10201f}.brand{font-weight:900;font-size:30px;letter-spacing:-.03em}.brand span,.accent{color:var(--violet)}h1,h2,h3{margin:0}.sub{color:var(--muted);font-size:13px}.field{display:grid;gap:7px;margin-top:14px}.field label{font-size:12px;font-weight:800}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fff;outline:none}.field textarea{min-height:96px;resize:vertical}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:800;cursor:pointer;touch-action:manipulation}.btn:disabled{opacity:.55;cursor:default}.primary{background:var(--violet);color:#fff}.ghost{background:#fff;border:1px solid var(--line);color:#1e2637}.danger{background:#fff0f0;color:var(--danger);border:1px solid #ffd3d3}.wide{width:100%;margin-top:16px}.msg{min-height:20px;margin-top:12px;font-size:12px}.ok{color:var(--ok)}.err{color:var(--danger)}.app{min-height:100vh;display:grid;grid-template-columns:230px 1fr}.side{background:var(--navy);color:#fff;padding:22px 14px;position:relative}.side .brand{font-size:23px;padding:0 8px 16px}.nav{width:100%;border:0;background:transparent;color:#C8CEDD;text-align:left;padding:13px;border-radius:11px;margin:3px 0;font-weight:700}.nav.on{background:var(--violet);color:#fff}.side-note{position:fixed;left:22px;bottom:18px;color:#9AA3B8;font-size:11px;line-height:1.5}.main{padding:28px}.top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}.top h2{font-size:40px;letter-spacing:-.04em}.actions{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:10px 12px;border-radius:999px;background:#EAFBF0;color:#14763A;font-size:11px;font-weight:800}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:22px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px}.metric small{display:block;color:var(--muted);font-weight:650}.metric b{display:block;font-size:28px;margin-top:8px}.grid{display:grid;grid-template-columns:2fr 1fr;gap:12px}.list{display:grid;gap:8px;margin-top:12px}.item{border:1px solid var(--line);border-radius:12px;padding:11px;font-size:12px}.item b{display:block;margin-bottom:3px}.chip{display:inline-block;padding:4px 8px;border-radius:999px;background:#EEE8FF;color:#6F35D6;font-size:10px;font-weight:800}.warn{background:#FFF7E8;color:#9A5B00}.red{background:#FFF0F0;color:#A62020}table{width:100%;border-collapse:collapse;margin-top:10px}th,td{text-align:left;padding:10px;border-bottom:1px solid #F0F1F5;font-size:11px}th{color:#8991A4}.modal-backdrop{position:fixed;inset:0;background:#0b1020a8;display:grid;place-items:center;padding:20px;z-index:30}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:22px;padding:22px;box-shadow:0 25px 80px #0004}.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.row3{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:12px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.section{display:none}.section.on{display:block}@media(max-width:1050px){.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:850px){.app{grid-template-columns:1fr}.side{display:none}.main{padding:18px}.grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.top h2{font-size:32px}}@media(max-width:560px){.cards{grid-template-columns:1fr}.actions{width:100%}.actions .btn{flex:1}.row2,.row3{grid-template-columns:1fr}.main{padding:14px}.top h2{font-size:29px}}
+</style>
+</head>
+<body>
+<section id="loginView" class="login">
+  <div class="login-card">
+    <div class="brand">Home<span>Ops</span></div>
+    <div style="height:18px"></div>
+    <h1>Founder Sign In</h1>
+    <p class="sub">Build 2026.09.15-8 · Standalone Frontend</p>
+    <div class="field"><label>Email</label><input id="email" type="email" autocomplete="username" value="Ahmadismail6446@gmail.com" /></div>
+    <div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" /></div>
+    <button id="signInBtn" class="btn primary wide" type="button">Sign in</button>
+    <div id="loginMsg" class="msg sub">Ready.</div>
+  </div>
+</section>
+
+<section id="appView" class="app hide">
+  <aside class="side">
+    <div class="brand">Home<span>Ops</span></div>
+    <button class="nav on" data-page="dashboard">◈ Dashboard</button>
+    <button class="nav" data-page="workorders">▣ Work Orders</button>
+    <button class="nav" data-page="vendors">⌘ Vendors</button>
+    <button class="nav" data-page="ai">✦ AI Team</button>
+    <div class="side-note">Property maintenance. Handled.<br />Build 2026.09.15-8</div>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <div><h2>Operations <span class="accent">Dashboard</span></h2><div class="sub">People. Properties. Progress.</div></div>
+      <div class="actions"><span id="who" class="pill">Founder</span><button id="runBtn" class="btn ghost">▶ Run Workflow</button><button id="newBtn" class="btn primary">+ New Work Order</button><button id="signOutBtn" class="btn ghost">Sign out</button></div>
+    </div>
+
+    <section id="dashboard" class="section on">
+      <div id="metrics" class="cards"></div>
+      <div class="grid">
+        <div class="card"><b>Recent Work Orders</b><div id="recentJobs"></div></div>
+        <div class="card"><b>System Check</b><div id="health" class="list"></div></div>
+        <div class="card"><b>AI Activity</b><div id="activity" class="list"></div></div>
+        <div class="card"><b>Vendor Network</b><div id="vendorPreview" class="list"></div></div>
+      </div>
+    </section>
+    <section id="workorders" class="section"><div class="card"><h3>Work Orders</h3><div id="jobsTable"></div></div></section>
+    <section id="vendors" class="section"><div class="card"><h3>Vendor Network</h3><div id="vendorsTable"></div></div></section>
+    <section id="ai" class="section"><div class="card"><h3>AI Team</h3><div id="agentsList" class="list"></div></div></section>
+  </main>
+</section>
+
+<div id="workOrderModal" class="modal-backdrop hide">
+  <div class="modal">
+    <h2>New Work Order</h2><div class="sub">Creates the work order transactionally, then runs the server-side workflow.</div>
+    <div class="row2"><div class="field"><label>Category</label><select id="woCategory"><option>Appliance Repair</option><option>Handyman</option><option>Garage Door Repair</option><option>Move-out Cleaning</option><option>Junk Removal</option></select></div><div class="field"><label>Priority</label><select id="woPriority"><option value="p3">Routine · P3</option><option value="p2">Urgent · P2</option><option value="p1">Emergency · P1</option><option value="p4">Turnover / Project · P4</option></select></div></div>
+    <div class="field"><label>Title</label><input id="woTitle" placeholder="e.g. Dryer not heating" /></div>
+    <div class="field"><label>Description</label><textarea id="woDescription" placeholder="Describe the issue clearly"></textarea></div>
+    <div class="row2"><div class="field"><label>NTE limit ($)</label><input id="woNte" type="number" min="0" step="1" value="250" /></div><div class="field"><label>Access window</label><input id="woAccess" placeholder="e.g. Tue 10am–2pm" /></div></div>
+    <div class="field"><label>Property address</label><input id="woAddress" placeholder="Street address" /></div>
+    <div class="row3"><div class="field"><label>City</label><input id="woCity" value="Denver" /></div><div class="field"><label>State</label><input id="woState" value="CO" /></div><div class="field"><label>ZIP</label><input id="woZip" /></div></div>
+    <div class="row2"><div class="field"><label>Requester name</label><input id="woRequester" placeholder="Property manager / tenant" /></div><div class="field"><label>Requester email</label><input id="woRequesterEmail" type="email" /></div></div>
+    <div class="field"><label>Requester phone</label><input id="woRequesterPhone" /></div>
+    <div id="woMsg" class="msg sub"></div>
+    <div class="modal-actions"><button id="cancelWo" class="btn ghost">Cancel</button><button id="createWo" class="btn primary">Create & Run AI</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+const BASE='https://fwtvtrhazrolskhqagel.supabase.co';
+const KEY='sb_publishable_ob7dlgp70N6tPb0wkbH6Ug_32NN95B1';
+const ORG='f5f94e51-4d51-4f90-ac37-1e9607a6d2cd';
+let session=null,user=null,role=null,cache={};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const title=s=>String(s||'').replaceAll('_',' ').replace(/\b\w/g,c=>c.toUpperCase());
+function setLoginMsg(t,type='sub'){$('loginMsg').textContent=t;$('loginMsg').className='msg '+type}
+function saveSession(d){session={access_token:d.access_token,refresh_token:d.refresh_token,user:d.user};user=d.user;localStorage.setItem('homeops_session_v8',JSON.stringify(session))}
+function loadSession(){try{session=JSON.parse(localStorage.getItem('homeops_session_v8')||'null');user=session?.user||null}catch{session=null}}
+function clearSession(){localStorage.removeItem('homeops_session_v8');session=null;user=null;role=null}
+async function api(path,opt={}){const headers={apikey:KEY,Accept:'application/json',...(opt.headers||{})};if(opt.body)headers['Content-Type']='application/json';if(session?.access_token)headers.Authorization='Bearer '+session.access_token;let r;try{r=await fetch(BASE+path,{...opt,headers})}catch(e){throw new Error('Network error: '+e.message)}const text=await r.text();let data=null;try{data=text?JSON.parse(text):null}catch{data=text}if(!r.ok)throw new Error(data?.msg||data?.message||data?.error_description||data?.error||('HTTP '+r.status));return data}
+async function refreshToken(){if(!session?.refresh_token)throw new Error('No refresh token');const d=await api('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:JSON.stringify({refresh_token:session.refresh_token})});saveSession(d);return d}
+async function authenticatedApi(path,opt={}){try{return await api(path,opt)}catch(e){if(/JWT|token|401|expired/i.test(e.message)&&session?.refresh_token){await refreshToken();return api(path,opt)}throw e}}
+async function signIn(){const email=$('email').value.trim(),password=$('password').value;if(!email||!password)throw new Error('Email and password are required');const d=await api('/auth/v1/token?grant_type=password',{method:'POST',body:JSON.stringify({email,password})});saveSession(d)}
+async function verifyOwner(){const rows=await authenticatedApi('/rest/v1/staff_members?select=role,active&user_id=eq.'+encodeURIComponent(user.id)+'&organization_id=eq.'+ORG);role=rows?.[0]?.active?rows[0].role:null;return !!role}
+async function q(table,order='created_at.desc'){return authenticatedApi('/rest/v1/'+table+'?select=*&organization_id=eq.'+ORG+'&order='+order+'&limit=100')}
+async function loadData(){const [jobs,vendors,approvals,agents,decisions]=await Promise.all([q('work_orders'),q('vendors'),q('approvals'),q('agent_configs','display_name.asc'),q('agent_decisions')]);cache={jobs,vendors,approvals,agents,decisions};render()}
+function render(){const {jobs=[],vendors=[],approvals=[],agents=[],decisions=[]}=cache;const open=jobs.filter(j=>!['cancelled','closed','paid'].includes(j.status)).length;const sourced=vendors.filter(v=>v.status==='sourced').length;const active=vendors.filter(v=>['active','preferred'].includes(v.status)).length;const gates=approvals.filter(a=>a.status==='pending').length;const runnable=jobs.filter(j=>!['cancelled','closed','paid','escalated','needs_info','awaiting_approval'].includes(j.status)).length;
+$('metrics').innerHTML=[['Open Jobs',open],['Vendor Candidates',sourced],['Active Vendors',active],['Founder Gates',gates],['Runnable Jobs',runnable]].map(x=>'<div class="card metric"><small>'+x[0]+'</small><b>'+x[1]+'</b></div>').join('');
+const jobRows=jobs.slice(0,10).map(j=>'<tr><td>#'+esc(j.work_order_number)+'</td><td>'+esc(j.title)+'</td><td><span class="chip '+(j.requires_human?'red':'')+'">'+esc(title(j.status))+'</span></td><td>'+esc(j.priority)+'</td></tr>').join('');
+const table='<div style="overflow:auto"><table><tr><th>WO</th><th>Issue</th><th>Status</th><th>Priority</th></tr>'+jobRows+'</table></div>';
+$('recentJobs').innerHTML=table;$('jobsTable').innerHTML=table;
+$('health').innerHTML='<div class="item"><b>Auth</b><span class="ok">verified · '+esc(user.email)+'</span></div><div class="item"><b>Database / Owner</b><span class="ok">verified · '+esc(role)+'</span></div><div class="item"><b>Workflow</b><span class="ok">runner v2 · router v4</span></div><div class="item"><b>Frontend</b><span class="ok">standalone build 8</span></div>';
+$('activity').innerHTML=decisions.slice(0,8).map(d=>'<div class="item"><b>'+esc(title(d.agent_name))+'</b><span class="sub">'+esc(d.decision_type)+' · '+Math.round(Number(d.confidence||0)*100)+'%</span></div>').join('')||'<span class="sub">No AI activity yet.</span>';
+$('vendorPreview').innerHTML=vendors.slice(0,8).map(v=>'<div class="item"><b>'+esc(v.business_name)+'</b><span class="sub">'+esc(title(v.status))+' · '+(v.insured?'insurance recorded':'insurance unverified')+'</span></div>').join('')||'<span class="sub">No vendors yet.</span>';
+$('vendorsTable').innerHTML='<div style="overflow:auto"><table><tr><th>Vendor</th><th>Status</th><th>Score</th><th>Insurance</th><th>License</th></tr>'+vendors.map(v=>'<tr><td>'+esc(v.business_name)+'</td><td><span class="chip">'+esc(title(v.status))+'</span></td><td>'+esc(v.score)+'</td><td>'+esc(v.insured?'Recorded':'Unverified')+'</td><td>'+esc(title(v.license_status))+'</td></tr>').join('')+'</table></div>';
+$('agentsList').innerHTML=agents.map(a=>'<div class="item"><b>'+esc(a.display_name)+'</b><span class="sub">'+esc(a.agent_name)+' · '+esc(a.model)+' · '+esc(a.autonomy_level)+' · '+(a.enabled?'enabled':'disabled')+'</span></div>').join('');
+$('who').textContent='Signed in · '+user.email}
+function showApp(){$('loginView').classList.add('hide');$('appView').classList.remove('hide')}
+function showLogin(){$('appView').classList.add('hide');$('loginView').classList.remove('hide')}
+async function boot(){loadSession();if(!session?.access_token){showLogin();return}try{user=await authenticatedApi('/auth/v1/user');if(!await verifyOwner())throw new Error('Owner access missing');showApp();await loadData()}catch(e){clearSession();showLogin();setLoginMsg('Session expired. Sign in again.','err')}}
+async function runWorkflow(workOrderId=null){const payload={max_steps:8};if(workOrderId)payload.work_order_id=workOrderId;return authenticatedApi('/functions/v1/workflow-runner',{method:'POST',body:JSON.stringify(payload)})}
+$('signInBtn').onclick=async()=>{const b=$('signInBtn');b.disabled=true;setLoginMsg('Authenticating…');try{await signIn();setLoginMsg('Checking founder access…');if(!await verifyOwner())throw new Error('Login succeeded, but founder access is missing');showApp();await loadData()}catch(e){setLoginMsg(e.message,'err');clearSession()}finally{b.disabled=false}};
+$('password').addEventListener('keydown',e=>{if(e.key==='Enter')$('signInBtn').click()});
+$('signOutBtn').onclick=()=>{clearSession();location.reload()};
+$('runBtn').onclick=async()=>{const b=$('runBtn');b.disabled=true;b.textContent='Running…';try{const r=await runWorkflow();await loadData();b.textContent=r.processed?.length?'Processed '+r.processed.length:'No AI work pending'}catch(e){b.textContent='Error · '+e.message}finally{setTimeout(()=>{b.textContent='▶ Run Workflow';b.disabled=false},2500)}};
+$('newBtn').onclick=()=>{$('workOrderModal').classList.remove('hide');$('woMsg').textContent=''};
+$('cancelWo').onclick=()=>$('workOrderModal').classList.add('hide');
+$('createWo').onclick=async()=>{const b=$('createWo');b.disabled=true;$('woMsg').className='msg sub';$('woMsg').textContent='Creating work order…';try{const titleVal=$('woTitle').value.trim();const address=$('woAddress').value.trim();const requester=$('woRequester').value.trim();const access=$('woAccess').value.trim();if(!titleVal||!address||!requester||!access)throw new Error('Title, property address, requester, and access window are required');const args={p_title:titleVal,p_description:$('woDescription').value.trim()||null,p_service_category:$('woCategory').value,p_priority:$('woPriority').value,p_nte_limit:$('woNte').value?Number($('woNte').value):null,p_source:'dashboard',p_property_name:address,p_address_line1:address,p_city:$('woCity').value.trim()||'Denver',p_state:$('woState').value.trim()||'CO',p_postal_code:$('woZip').value.trim()||'00000',p_requester_name:requester,p_requester_email:$('woRequesterEmail').value.trim()||null,p_requester_phone:$('woRequesterPhone').value.trim()||null,p_access_window:access};const result=await authenticatedApi('/rest/v1/rpc/create_work_order',{method:'POST',body:JSON.stringify(args)});const row=Array.isArray(result)?result[0]:result;const woId=row?.work_order_id;if(!woId)throw new Error('Work order created but ID was not returned');$('woMsg').textContent='Running AI workflow…';await runWorkflow(woId);await loadData();$('workOrderModal').classList.add('hide')}catch(e){$('woMsg').className='msg err';$('woMsg').textContent=e.message}finally{b.disabled=false}};
+document.querySelectorAll('.nav').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.section').forEach(x=>x.classList.remove('on'));$(btn.dataset.page).classList.add('on')});
+showLogin();boot();
+})();
+</script>
+</body>
+</html>
